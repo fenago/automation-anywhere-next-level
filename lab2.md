@@ -4,7 +4,7 @@ In the last lab, we did the automation anywhere setup and now we have all ready 
 
 So in this lab we will develop a simple bot that will open notepad and type some text.
 
-So let's go click here on Bots tab. In the next section,we will explore more deeper the control room and other tabs too.
+So let's go click here on Automation tab. In the next section,we will explore more deeper the control room and other tabs too.
 
 ![](./images/15.png)
 
@@ -14,7 +14,7 @@ So now here on my bots, let's click here on the in this button where it says Cre
 
 Here, we will give the name of the bot. For example:
 
-`Bot Notepad`
+`Bot_Notepad`
 
 And now click on Create Edit.
 
@@ -57,18 +57,16 @@ And like this we will copy the full path of this shortcut.
 
 ![](./images/21.png)
 
-Let's close and click here and Ctrl V, just paste a remove the quotes like this.
+Let's close and click here and Ctrl + V, just paste a remove the quotes like this.
 
-Let's remove the quotes.
+`C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Accessories\Notepad.lnk`
 
-And now we if we run.
-
+Let's remove the quotes. And now we if we run.
 So let's here after you paste here the location, click on Run.
 
 ![](./images/22.png)
 
 And after that we will see the notepad open.
-
 So as you can see, we successfully developed the automation to open the notepad.
 
 ![](./images/23.png)

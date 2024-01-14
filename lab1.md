@@ -2,10 +2,12 @@
 
 In this lab, we will set up the automation anywhere in our machine.
 
-So first we need to create a free account in automation anywhere.
-So let's on Google, for example, search for `automation anywhere Community Edition`.
 
-It's the free edition to use.
+**Note:** We will use Google Chrome browser to complete the labs.
+
+
+So first we need to create a free account in automation anywhere.
+So let's on Google, for example, search for `Automation Anywhere Community Edition`. It's the free edition to use.
 
 ![](./images/1.png)
 
@@ -82,20 +84,8 @@ And now here we can add a nickname. Let's click on Done.
 ![](./images/11.png)
 
 And now we have our computer connected with Control Room.
-Now let's click here on set credentials.
 
-![](./images/12.png)
-
-And here you type your device password, the password of your computer.
-So I will type here my password and click on Save.
-
-![](./images/13.png)
-
-And now, yes, we completed 100% the setup of automation anywhere on our machine in our computer.
-
-![](./images/14.png)
-
-And now we have ready to start automating.
+We have completed 100% the setup of automation anywhere on our machine in our computer. And now we have ready to start automating.
 
 In the next lab, we will develop a simple automation that will open a notepad and type some text.
 
