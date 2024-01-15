@@ -1,4 +1,4 @@
-## Lab: Introduction to Automation Anywhere
+## Lab: Automation Anywhere Setup
 
 In this lab, we will set up the automation anywhere in our machine.
 

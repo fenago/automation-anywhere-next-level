@@ -1,5 +1,5 @@
-Lab 13: Working with Emails 
-======================================================
+Lab 6: Working with Emails 
+==========================
 
 
 This lab will explore automating tasks that use **email**. We will

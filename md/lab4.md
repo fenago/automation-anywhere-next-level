@@ -1,4 +1,4 @@
-## Lab:	Understanding Types of Bots
+## Lab: Understanding Types of Bots
 
 ## Introduction
 
