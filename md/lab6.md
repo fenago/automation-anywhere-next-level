@@ -70,7 +70,7 @@ So on this section, we will set up the connection to a Gmail account.
 
 So here let's select the option email server.
 
-And now here those so far gmail accounts will be imap dot gmail dot com.
+And now here those so far gmail accounts will be imap.gmail.com.
 
 And the part will be 993.
 

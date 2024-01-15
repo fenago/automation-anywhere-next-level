@@ -1,400 +1,240 @@
 ## Lab:	Understanding Types of Bots
 
-So in this lab we'll discover the bots page. In Bots page, we can see the developer bots that we already developer.
+## Introduction
 
-![](./images/50.png)
+This lab focuses on exploring the Bots page in Automation Anywhere, understanding how to organize and manage bots, and examining various functionalities and features.
 
-So here we can see our bot notepad and we can see here a folder that is created by default.
-So sample bots that has nothing.
-We can create folders to organize better our automation. So basically, for example, we can create a sub folder.
+## Exploring the Bots Page
 
-![](./images/51.png)
+### Accessing the Bots Page
 
-Same for basically automation.
-And you are course.
-And we can put here a description and create a folder.
+1. Navigate to the Bots page in Automation Anywhere where developer bots are listed.
 
-And then we click here on bots and we can see our created folder.
+   ![Bots Page](./images/50.png)
 
-![](./images/52.png)
+### Organizing Bots
 
-And if we want, put the developer automation, the task bots in this folder, we just need to go here, click on copy task bot.
+1. Observe the default folder structure and existing bots, such as the 'bot notepad'.
+2. Learn how to create and organize bots into folders for better management.
 
-![](./images/53.png)
+   ![Creating Subfolders](./images/51.png)
 
-Like here, for example, let's just delete this quick here on Browse, search for our created folder and just confirm and we can see click here on Copy now.
+3. View the newly created folder in the Bots page.
 
-![](./images/54.png)
+   ![Created Folder](./images/52.png)
 
-And now we can see that our automation in is in our created folder.
+### Managing Task Bots
 
-Other useful stuff here in my VODs for example, if you go here to a task, what if we go here?
+1. Understand how to copy task bots to different folders for organization.
 
-We have some options.
+   ![Copying Task Bot](./images/53.png)
 
-So if click here we can delete the task bot here, we can copy the task bot here, we can edit the task
+   ![Bot in New Folder](./images/54.png)
 
-bot, but we need, we don't need to go through here.
+2. Confirm the action and view the bot in the new folder.
 
-![](./images/55.png)
+   ![Task Bot Management](./images/55.png)
 
-We can click there and we already can edit the test bots.
+3. Explore additional management options like deleting, copying, and editing task bots.
 
-Here, we can view the test squad.
 
-![](./images/56.png)
 
-Basically, we can see the design of our test squad.
+### Analyzing and Running Bots
 
-Here analyze the.
+1. Analyze the design and configuration of task bots.
 
-We can analyze for analytics for both insights, but we don't develop this both for analytics.
+   ![Viewing Bot Design](./images/56.png)
 
-So we will get nothing.
+2. Understand the limitations of bot analytics if not developed specifically for it.
 
-If we click here, for example, we can see if we click.
+3. Learn how to run bots directly from the Bots page.
 
-![](./images/57.png)
+   ![Bot Analytics](./images/57.png)
 
-We'll see that we dashboard not available because we we have nothing targeting to analytics.
 
-![](./images/58.png)
+## Working with Credential Space and Global Values
 
-So let's close and here we can run directly from here.
+### Credential Space
 
-![](./images/59.png)
+1. Use Credential space to store sensitive data like passwords for use in automations.
 
-Our task what's.
+   ![Running Bots](./images/59.png)
 
-![](./images/60.png)
+### Global Values
 
-Credential space is where we can start with security sensitive data like passwords that we want to use
+1. Understand how to access and use global values that are accessible to all automations.
 
-in our automations to log into applications emails.
 
-So we'll use this page in one section in email automation so we will learn how to use it.
+## Understanding Packages
 
-In global values is where you can see the values that are accessible to all automations.
+1. Learn about different packages available for use in task bots.
 
-Basically, the values that are accessible throughout bots are displayed here and in packages.
+   ![Bot Packages](./images/61.png)
 
-We can see the packages that we can use in our task bots.
+2. Explore specific packages like Data.table and Database packages.
 
-![](./images/61.png)
 
-For example, a package is a basket of actions.
+A package is a basket of actions.
 For example, we have a package called Data.table that allows us to work with data tables.
-
 Database package is basically a package that contains a bunch of actions to work with the database.
 
 
-Now, we will learn variables.
+In this section, we will learn about using variables, triggers, and the recorder feature in Automation Anywhere. This will include creating a variable, setting up triggers, and utilizing the recorder to automate tasks.
 
-So we will cover what's a variable and how to create one and how to use one variable.
-So first, go to my page and click on the board.
+## Part 1: Understanding and Creating Variables
 
-![](./images/62.png)
+### What is a Variable?
 
-Notepad the the first board that we develop that opens the notepad and set text.
+- A variable in Automation Anywhere allows you to store a single value or multiple values for use in tasks.
 
-So I moved my task board to the automation anywhere course and let's open the board notepad.
+### Creating a Variable
 
-So when we open the our box, our task, what we can see here that the action step triggers and we can
+1. Navigate to your bot page and select your bot. For this example, we'll use a bot named "Notepad."
+   
+   ![](./images/62.png)
 
-see that the variables.
+2. Open the bot to view the actions, triggers, and variables.
 
-So first, what's a variable?
+3. To create a new variable, click on the 'Variables' section and then click the plus icon.
 
-It's something that allows us to store a value or more than one value.
+   ![](./images/64.png)
 
-So in task bots, we have actions that need us to input values.
+4. Enter a name for your variable, such as 'message'.
 
-Like here in the recorder, we set the text that we want to type on the notepad,
+   ![](./images/65.png)
 
-![](./images/63.png)
+5. Optionally, add a description.
 
-for example, and we can do instead of typing directly the text here, we can use a variable to store the text and we can we can call the variable here that contains this value.
+6. Choose the variable type (String, Number, Date Time, Boolean, etc.). For this lab, select 'String'.
 
-So let's first create a variable to create a variable, click on variables, click on the plus icon.
+7. Set a default value for the variable, e.g., 'Hello World'.
 
-![](./images/64.png)
+   ![](./images/66.png)
 
-And here it's mandatory.
+8. Incorporate the variable into your task. In the recorder action, replace the hardcoded text with your variable.
 
-It's required to give a name to the variable.
+   ![](./images/67.png)
 
-So for example, let's put here message.
+### Using the Variable in a Task
 
-![](./images/65.png)
+1. Clear any existing text in the action where the variable is to be used.
 
-Uh, we can give a description to the variable, but it's optional.
+   ![](./images/68.png)
 
-Let's leave empty here.
+2. Insert the variable into the action. This can be done by typing the variable name with a dollar sign (e.g., `$message`) or by using the 'Insert a Value' feature.
 
-This checkbox.
+   ![](./images/69.png)
 
-Let's leave empty.
+3. Test the bot by running it to ensure it types 'Hello World' in Notepad.
 
-We don't need to check them lately on the course we will use them.
+   ![](./images/71.png)
 
-And so we need to say the type of variable.
-
-So string is basically type.
-
-String is stored, text can be text numbers can be a mix of things.
-
-Number is when we want a variable just to store numbers, we have then the date time.
-
-This is basically for dates boolean for true or false.
-
-So we have some types of variables.
-
-In this case, the one that you want to use is string because it's text that we want to store.
-
-And here in default value, we can set directly the value that you want store.
-
-So will the Hello World.
-
-So let's type here.
-
-And now we just go create here the variable.
-
-![](./images/66.png)
-
-And now we can see here the variable created.
-
-So let's go to the record capture action where we set the text and instead of.
-
-![](./images/67.png)
-
-Typing directly here, the text.
-
-Let's clear the text.
-
-![](./images/68.png)
-
-So we have here two ways to call the variable.
-
-So one of them is the dollar sign.
-
-And we can see here, just click here on STR message and we are already calling the variable.
-
-![](./images/69.png)
-
-Other way is clicking here in insert a value.
-
-![](./images/70.png)
-
-It's the more simple way.
-
-Maybe click here on the dropdown and select the message and click yes insert.
-
-So in this way we are calling a variable that contains the text.
-
-Hello world.
-
-So now if we run the our automation, let's click here on Run, we will see that the our automation
-
-will type in the same way the text Hello world.
-
-![](./images/71.png)
-
-And now the automation will open the notepad and we will see then the railroad appearing.
-
-![](./images/72.png)
-
-So like we can see appears here, the yellow roll in the same way.
-
-And so, it's this basically the variables in a simple way, it's to store values through the
-
-course.
 
 We'll use variables to receive outputs from actions to give, to give values to actions.
 
-So we will use them.
 
+This section will guide you through using triggers and the recorder feature in Automation Anywhere. You'll learn how to automate tasks based on specific triggers and record actions for repetitive tasks.
 
-We will learn triggers.
+## Part 1: Understanding and Setting Up Triggers
 
-So here on our bot notepad task bot, let's click here on triggers.
+### Exploring Triggers
 
-![](./images/73.png)
+1. Open your notepad task bot in Automation Anywhere and navigate to the 'Triggers' section.
 
-And a trigger enables a task to run automatically in response to an event that occurs on our device.
+   ![](./images/73.png)
 
-So we can see here that we have some types of triggers.
+2. Understand that a trigger enables a task to run automatically in response to an event on your device.
 
-![](./images/74.png)
+3. Examine the types of triggers available.
 
-Email trigger basically is can be some type of email that makes our task bot run automatically executing
+   ![](./images/74.png)
 
-and we have hotkey trigger in the first trigger.
+### Setting Up a Hotkey Trigger
 
-So in this case, just to be simple, we will use the hotkey trigger.
+1. Decide to use a hotkey trigger for simplicity.
 
-So we can see here on our bot that we have a section called Trigger.
+2. Drag the hotkey trigger into your bot workflow.
 
-So here we can drag a trigger that we want to use to enable a task, our task to run automatically.
+   ![](./images/75.png)
 
-So let's drag here our hotkey trigger.
+3. Define a hotkey combination in the hotkey trigger properties. For example, use Ctrl + A.
 
-![](./images/75.png)
+   ![](./images/76.png)
 
-And so here in the hotkey trigger properties, we have to define hotkey that will run automatically
+4. Save your bot configuration.
 
-the bot that will make the bot run automatically.
+### Running the Bot with the Trigger
 
-So for example, in our case we can use, for example, the control and let's use for example, the
+1. Run the bot and observe it waiting for the trigger.
 
-A we, you can use a letter that you want or the hotkey.
+   ![](./images/77.png)
 
-![](./images/76.png)
+2. Press the defined hotkey combination and watch the bot execute its task.
 
-And so in this way when you run a bot, the bot will wait for this hotkey to execute our automation.
+   ![](./images/78.png)
 
-So let's save and now let's run our bot and we can see the run now on or run with Trigger.
+   ![](./images/79.png)
 
-![](./images/77.png)
+## Part 2: Using the Recorder Feature
 
-So let's click on Run with Triggers and the bot is starting deploying in our computer and we will see
+### Creating a New Task Bot for Recording
 
-that the bot is listening for trigger.
+1. Navigate to the 'My Bots' section and create a new task bot in the appropriate folder.
 
-![](./images/78.png)
+   ![](./images/80.png)
 
-So, so the bot just executes if we click on this combination hotkey control plus A so.
+2. Name the bot (e.g., 'Bot Recorder') and begin editing.
 
-If we click on control and a let's see what will happen.
+   ![](./images/81.png)
 
-The bot will execute.
+### Utilizing the Recorder
 
-![](./images/79.png)
+1. Access the recorder feature within the bot.
 
-So this is a very useful feature to execute automatically.
+   ![](./images/82.png)
 
-Automations.
+2. Choose the window to record your actions. For this exercise, select the Calculator app.
 
-So now we discover the is full feature and in the next video, the next lab we will learn the recorder.
+   ![](./images/83.png)
 
-A nice feature from automation anywhere.
+### Recording Actions
 
+1. Open the Calculator application.
 
-Now we will cover the automation anywhere recorders.
+   ![](./images/84.png)
 
-So let's create a new task bot.
+2. Refresh the window list in the recorder to detect the Calculator.
 
-So here on my bots, go to the crib folder and let's here create a new task bot.
+   ![](./images/85.png)
 
-![](./images/80.png)
+3. Start recording actions in the Calculator using the Universal Recorder.
 
-So let's click here on Create the Bots and let's give the name of bot recorder, for example, and let's
+   ![](./images/86.png)
 
-click here on Create Edit.
+4. Perform a series of actions (e.g., simple calculations) and observe the recorder capturing these actions.
 
-![](./images/81.png)
+   ![](./images/87.png)
 
-So now in our bot recorder, uh, in this button, we can use the recorder.
+5. Pause or stop the recorder once you have completed the actions.
 
-![](./images/82.png)
+   ![](./images/88.png)
 
-So basically the recorder allows us to record our actions in certain window and it can help us to develop
+6. Review the captured actions.
 
-a bit more faster our test bots.
+   ![](./images/89.png)
 
-So first we need to say the window that we want the recorder to record our actions so we can see here
+### Testing the Recorded Bot
 
-the open windows in our computer.
+1. Clear the Calculator to its initial state.
 
-![](./images/83.png)
+   ![](./images/90.png)
 
-In this case we will record just our calculator.
+2. Run the automation and watch the bot perform the recorded actions.
 
-For example.
+   ![](./images/91.png)
 
-First let's open here the calculator.
+   ![](./images/92.png)
 
-![](./images/84.png)
+## Conclusion
 
-And to appear here in window in this dropdown.
-
-Let's refresh here the windows and like we can see here appears the calculator.
-
-![](./images/85.png)
-
-So now let's choose the recorder.
-
-We have the universal recorder and the sense recorder.
-
-The universal recorder is the recorder that we must use to record the web pages, applications of our
-
-desktop and a sensor recorder like we can see here, use image recognition and artificial intelligence
-
-and is not use in remote desktops in Citrix environments or when our universal recorder has struggled
-
-to capture our actions.
-
-So in this case, we will use the universal recorder.
-
-So let's click here.
-
-And now we can see that recorder is on.
-
-![](./images/86.png)
-
-So we will start clicking here on our calculator.
-
-The recorder will record our action so we can see here the red line appearing.
-
-![](./images/87.png)
-
-So.
-
-For example, I click I will click here on the eighth.
-
-And the vote will record my action.
-
-Now I will click on the plus icon and the vote recorded my action.
-
-Let's click on the nine, for example, and let's click on the equals to make the the sum so the votes
-
-create my actions that I did on the calculator so we can hear pause the recorder.
-
-Imagine that we want to stop the recorder.
-
-![](./images/88.png)
-
-We can stop the recorder now we can resume, for example, if we want to click, if we want to do some
-
-more actions.
-
-And after we did all the actions that we want to do in the window in the calculator, we just click
-
-on finish and we will see here, like we can see here the actions that we did on the calculator.
-
-![](./images/89.png)
-
-So now let's clear here our calculator.
-
-![](./images/90.png)
-
-Let's, let's put on the state that it is when we open our calculator.
-
-And now if we run the automation, let's see what will happen.
-
-![](./images/91.png)
-
-So we can see that the bot is doing our actions.
-
-![](./images/92.png)
-
-So, so the recorder captured our actions and translate it to actions so can be useful to develop a
-
-bit more faster the test bots.
-
-And now that we know already the basics to develop test bots, we will start to develop use cases
-
-to learn how to automate with automation anywhere.
-
-So in the next section we will develop a use case that will use the web browser.
-
-So we'll be about web automation.
+You have now learned how to set up triggers and use the recorder feature in Automation Anywhere. These skills are vital for automating tasks based on specific events and for quickly developing bots for repetitive actions. Next, we will explore developing use cases for web automation.
