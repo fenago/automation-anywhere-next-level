@@ -2,111 +2,91 @@
 
 In this lab, we will get a deeper look into automation anywhere control room.
 
-So first we will cover the main control room tips like dashboard activity and bot step
+# Exploring the Activity Tab in Automation Anywhere
 
-![](./images/37.png)
+## Introduction
 
-And then we'll cover the basics about the task.
+This lab is designed to provide a comprehensive understanding of the Activity tab in Automation Anywhere. This tab is crucial for monitoring and managing the activities of your bots.
 
-![](./images/38.png)
+## Prerequisites
 
-Bot development like variables will discover what's a variable triggers and will discover the recorder.
+- Access to Automation Anywhere.
+- Basic familiarity with Automation Anywhere interface.
 
-A useful automation anywhere feature.
+## Lab Overview
 
-So now we'll get to look into Dashboard page.
+- **Section 1**: Navigating to the Activity Tab.
+- **Section 2**: Understanding the Activity Dashboard.
+- **Section 3**: Monitoring Bot Activities.
 
-![](./images/39.png)
+## Section 1: Navigating to the Activity Tab
 
-So like you can see here in Dashboard Page, we can create a bot from here clicking this button.
+### Step 1: Accessing Automation Anywhere
 
-![](./images/40.png)
+1. Open Automation Anywhere Client.
+2. Log in using your credentials.
 
-We have a link to access bot inside, so I will show you a bit about what inside.
 
-So basically what inside is a platform from automation anywhere that gives us insights about automation
+### Step 2: Locating the Activity Tab
 
-performance and we can get insights about the abusiness.
+1. On the main dashboard, locate and click on the ‘Activity’ tab.
 
-So we can see here by default we have two dashboards.
+   ![Activity Tab](./images/activity_tab.png)
 
-![](./images/41.png)
+## Section 2: Understanding the Activity Dashboard
 
-For example, we will access the device dashboard and we can get insights about the devices that are
+### Overview of the Dashboard
 
-connected to control room.
+1. Familiarize yourself with the layout and the information displayed.
 
-So like we can see here, we have one online devices is our device, our computer.
+   ![Activity Dashboard](./images/activity_dashboard.png)
 
-![](./images/42.png)
 
-We can get insights about the device utilization and device activity history.
+## Section 3: Monitoring Bot Activities
 
-So it's a platform that gives us insights that can be useful.
+### Real-Time Monitoring
 
-And then in Dashboard page, we get some metrics like task bot skill.
+1. Learn how to monitor bots in real-time.
+2. Understand different statuses like running, completed, and failed.
 
-It's basically the number of automations that we created.
 
-So I have here only one because it's my new account and most user actions is the actions that we use
+In progress page allows us to track the automations, the task bots that are running in real time and gives
+us the historical about the task bots executed. So, here in progress we can track the bots that are currently running.
 
-at most.
-
-![](./images/43.png)
-
-So basically you will get like me, the application unrecorded because what's the type of actions that
-
-we used in our first task?
-
-What the notepad task what?
-
-That's what runs is the number of times that we run our automations, the task bots.
-
-And here we get the average time spent creating a task bots and automation.
-
-![](./images/44.png)
-
-So this page allows us to track the automations, the task bots that are running in real time and gives
-
-us the historical about the task bots executed.
-
-So here in progress we can track the bots that are currently running.
-
-So for example, let's copy this variable and open a new tab and we will run the notepad bot that we
-
-developed.
-
-So for example, let's go to bots, my bots and we will see then the bot notepad
+Let's go to bots and if we run the  notepad bot  we can see here will appear then the bots that is running.
 
 ![](./images/45.png)
 
-the bot that we developed and if we run the boat we can see here will appear then the bots that is running.
 
 ![](./images/46.png)
 
-So just wait a bit.
-
-And we can see here what is running active.
+So just wait a bit. And we can see here what is running active.
 
 ![](./images/47.png)
 
-We can see here the info.
 
-Let's close the notepad.
+### Detailed View
 
-![](./images/48.png)
+1. Click on any bot activity to view detailed information.
+2. Analyze the execution steps, duration, and outcomes.
 
-And here in historical, we can see the end of the death squads, executions.
+   ![Detailed View](./images/detailed_view.png)
 
-So for each execution and the execution, we can see here the status, if it's completed, if it was
 
-successful or if it failed.
+## Section 4: Home, Devices and Packages Tabs
 
-![](./images/49.png)
+1. Click on Home Tab to get high level overview.
 
-We can see the device name where the task bot was executed.
+2. Click on Devices Tab to view connected devices.
+![](./images/_1.png)
 
-We can see the bottom name, the name of the automation, and we can see when the test, what was executed,
+3. Click on Packages to view the packages.
 
-the hours and the day, and we can see to when the execution ended here.
+
+
+
+
+## Conclusion
+
+By completing this lab, you now have a thorough understanding of the Activity tab in Automation Anywhere. This knowledge is essential for effectively monitoring and managing your automated processes.
 

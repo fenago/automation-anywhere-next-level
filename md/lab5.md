@@ -502,7 +502,7 @@ So let's run.
 
 I will close this tab.
 
-So the boat is already running.
+So the  bot  is already running.
 
 ![](./images/145.png)
 
@@ -514,7 +514,7 @@ Now we will develop the bot to show to us a message with a recommendation depend
 
 city temperature.
 
-So to make the boat show to us a certain message, depending on the city temperature, we need to use
+So to make the  bot  show to us a certain message, depending on the city temperature, we need to use
 
 conditions.
 
@@ -636,7 +636,7 @@ So let's click on Run.
 
 ![](./images/158.png)
 
-So the boat is already running.
+So the  bot  is already running.
 
 ![](./images/159.png)
 

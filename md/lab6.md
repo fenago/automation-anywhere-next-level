@@ -230,7 +230,7 @@ So let's click here on run.
 
 ![](./images/206.png)
 
-And as you can see, our boat has run successfully.
+And as you can see, our  bot  has run successfully.
 
 ![](./images/207.png)
 
