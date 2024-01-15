@@ -1,13 +1,12 @@
 ## Lab:	Understanding Types of Bots
 
-So in this lab we'll discover whether the bots page So first in Bots page, we can see the developer bots that we already developer.
+So in this lab we'll discover the bots page. In Bots page, we can see the developer bots that we already developer.
 
 ![](./images/50.png)
 
 So here we can see our bot notepad and we can see here a folder that is created by default.
 So sample bots that has nothing.
-So we can create folders to organize better our automation.
-So basically, for example, we can click here and create a sub folder.
+We can create folders to organize better our automation. So basically, for example, we can create a sub folder.
 
 ![](./images/51.png)
 
@@ -19,15 +18,11 @@ And then we click here on bots and we can see our created folder.
 
 ![](./images/52.png)
 
-And if we want, put the developer automation, the task bots in this folder, we just need to go here,
-
-click on copy task bot.
+And if we want, put the developer automation, the task bots in this folder, we just need to go here, click on copy task bot.
 
 ![](./images/53.png)
 
-Like here, for example, let's just delete this quick here on Browse, search for our created folder
-
-and just confirm and we can see click here on Copy now.
+Like here, for example, let's just delete this quick here on Browse, search for our created folder and just confirm and we can see click here on Copy now.
 
 ![](./images/54.png)
 
