@@ -1,5 +1,5 @@
-Lab 18: Managing Errors 
-==================================================
+Lab 10: Error Handling
+======================
 
 In this lab, we will be using the following packages:
 

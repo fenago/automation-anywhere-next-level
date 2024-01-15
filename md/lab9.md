@@ -1,5 +1,5 @@
-Lab 17: Running External Scripts 
-=================================
+Lab 9: Data Manipulation and Scripting 
+======================================
 
 In this lab, we will be using the following packages:
 

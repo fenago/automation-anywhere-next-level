@@ -1,5 +1,5 @@
-Lab 15: Working with Databases 
-=========================================================
+Lab 7: Working with Databases 
+=============================
 
 
 In this lab, we will be using the following packages:
@@ -57,7 +57,7 @@ Let\'s start this lab by performing the following steps:
 
 1.  Log in to **Control Room**.
 2.  Create a new bot and call it
-    `Chapter15 – Database Automation` in the `\Bot\`
+    `Lab7 – Database Automation` in the `\Bot\`
     folder.
 3.  Add a new **Comment** action as `"---------------------"`
     and click on **Save**.
