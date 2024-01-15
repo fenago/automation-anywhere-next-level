@@ -1,755 +1,1321 @@
-## Lab: Email - Specialized Automation
+Lab 13: Working with Emails 
+======================================================
 
-In this section we will learn about email automation.
 
-So we will develop a task that does email automation.
+This lab will explore automating tasks that use **email**. We will
+be looking at the **Email** package in Automation Anywhere. We will look
+at how to connect to different types of email accounts, such as
+**Exchange Web Services (EWS)**, IMAP, and POP3. You will also learn
+about sending and receiving emails, as well as looping through different
+email folders. The walk-throughs will include working with attachments.
+This lab will also introduce the `Dictionary` variable
+type. A `Dictionary` variable type is used to store key-value
+pairs. Each item in the dictionary has a key and a value. The key is
+used as a mapping reference to the value. A system dictionary already
+exists for using emails in Automation Anywhere. We will learn how to use
+this system dictionary variable type.
 
-But before we start to learn and develop our task, what, let's do a quick overview to see what our
+In this lab, we will cover the following:
 
-task bot will do.
+-   Connecting to mailboxes
+-   Reading emails and attachments
+-   Sending emails and attachments
 
-As you can see, I created an image that shows what our task bot will do.
 
-![](./images/187.png)
 
-So first we'll connect to our email and in this case we will use Gmail account.
 
-So if you don't have a Gmail account, I suggest you create one.
 
-It's very simple.
+Technical requirements 
+======================
 
-You can create a Gmail account in two minutes.
 
-And after our bot connects to our email, it will apply a filter in the in our emails, in the emails
+In order to install Automation Anywhere Bot agent, the following
+requirements are necessary:
 
-that we have in our inbox.
+-   Google Chrome
+-   Completed registration with Automation Anywhere  Community
+    Edition
+-   Successful log-on to Automation Anywhere  Community Edition
+-   A successfully registered local device
+-   Successfully downloaded sample data from GitHub
 
-And then for each email that we have that matches the filter, the bot will reply to the email and save
 
-the attachment.
 
-If the email has some attachments, it will.
 
-The bot will save it in our computer.
 
-And then after process all emails, the bot then will send the email to the admin.
+Connecting to mailboxes 
+=======================
 
-It can be in our to our account or the email that we have.
+In the first walk-through, you will learn how to create a new session by
+connecting to the following:
 
-So the board will send the email and disconnect from our email and and terminate that task.
+-   An Outlook mailbox
+-   An POP3/IMAP mailbox
+-   An EWS mailbox
 
-We'll start to develop our bonds.
+The practical approach for this lab will be to demonstrate the
+different actions from the **Email** package. We will be using comments
+and steps to help structure all the actions. As the first section will
+look at how we can connect to different types of mailboxes, we can begin
+by building the initial skeleton using comments and steps.
 
-So let's start by craving any one.
+Let\'s start this walk-through by executing the following steps:
 
-![](./images/188.png)
+1.  Log in to **Control Room**.
+2.  Create a new bot in the `\Bot\` folder and call it
+    `Lab 13 – Email Automation`.
+3.  Add a new **Comment** action on line **1** as
+    `"---------------------"` and click on **Save**.
+4.  Add a **Step** just below line **1**, set the **Title** property as
+    `"Connecting to mailboxes"`, and click on **Save**.
+5.  Add another **Step** just below line **2**, ensuring it is within
+    the previous **Step** on line **2**, set the **Title** property as
+    `"Connecting to Outlook"`, and click on **Save**.
+6.  Add another **Step** just below line **3**, ensuring it is aligned
+    to the **Step** on line **3**, set the **Title** property as
+    `"Connecting to POP3/IMAP"`, and click on **Save**.
+7.  Add another **Step** just below line **4**,
+    ensuring it is aligned to the **Step** on line **4**, set the
+    **Title** property as `"Connecting to EWS"`, and click on
+    **Save**.
+8.  Add a new **Comment** action on line **6** as
+    `"---------------------"` and click on **Save**. Your
+    initial development interface should look like this:
 
-With the name of bots and their score emailed mission.
 
-And let's create it.
 
-So now that our board is created, let's develop the first step.
 
-And the first step is to connect to our email account so then we can get emails from it, send reply
+![](./images/Figure_13.2_B15646.jpg)
 
-to emails and so on.
 
-So to connect to our email account lets here search on actions for connect.
 
-![](./images/189.png)
 
-And here let's open where sales email.
 
-Let's rock the action connect.
 
-So now here we need to feel some properties of this action.
+That\'s great, we now have a structure for our walk-through. The first
+connection we will look at is Microsoft Outlook.
 
-![](./images/190.png)
 
-So on this section, we will set up the connection to a Gmail account.
 
-So here let's select the option email server.
+Connecting to Outlook 
+---------------------
 
-And now here those so far gmail accounts will be imap.gmail.com.
+Outlook already has your mailbox configured,
+whether it is POP3, IMAP, Gmail, or Exchange. Because of this, no
+details or credentials are needed. Something to remember is that
+Automation Anywhere does not support multiple mailboxes on Outlook. If
+you do have more than one mailbox connected to Outlook, your bot will
+use the default mailbox.
 
-And the part will be 993.
+Let\'s start this walk-through by executing the following steps:
 
-And now we must provide the email address and the password to connect to our email account.
+1.  Expand the **Step** on line **3** titled
+    `"Connecting to Outlook"`.
 
-![](./images/191.png)
+2.  To create an Outlook session, add the **Email: Connect** action just
+    below line **3**, ensuring it is within the **Step** on line **3**.
 
-So let's start the credentials in a secure way by creating a credential in control room.
+3.  Set the following properties for the **Email: Connect** action on
+    line **4**:
 
-So to create a credential here lets over this button.
+    **Session name**: `EmailOutlook`
 
-And now let's open the credentials page.
+    **Connect to**: **Outlook**
 
-And now let's create a convention.
+    The properties should look like this:
 
-So to create the credential, let's click here on this button.
+    
+    ![](./images/Figure_13.3_B15646.jpg)
+    
 
-And here first, we need to define a credential name so it can be, for example, G.M. credential.
 
-Now here on That's Your Roots.
 
-So the first attribute will be the email address.
+4.  Click on **Save**.
 
-So attribute name can be email, so the input can be standard or user provided.
+5.  The session is now created. Once you have finished, you will need to
+    disconnect from the mailbox. To do this, add the **Email:
+    Disconnect** action just below line **4**, ensuring it is within the
+    step on line **3**.
 
-So in our case will be standard will be always the same email.
+6.  Set the following property for the **Email: Disconnect** action on
+    line **5**:
 
-So let's select here standard.
+    **Session name**: `EmailOutlook`
 
-Here we can uncheck the option.
+    The property should look like this:
 
-Mask will not be the password here.
+    
+    ![Figure 13.4 -- Email: Disconnect
+    property](./images/Figure_13.4_B15646.jpg)
+    
 
-So now here.
 
-Let's indicate our email address.
 
-So now we must create another attribute for the password.
+7.  Click on **Save** and your development interface for this section
+    should look like this:
 
-So let's click here on the plus.
 
-![](./images/192.png)
 
-So here as you would name will be password and we'll be standard will be always the same password.
 
-And now here we must indicate the password.
+![](./images/Figure_13.5_B15646.jpg)
 
-But here to connect to our email accounts will not provide the password that we use to connect to our
 
-Gmail account.
 
-So we will generate a special password to be only used here on automation anywhere.
 
-![](./images/193.png)
 
-So generate this password lets first access to our gmail account.
 
-So let's click here on manage your Google account.
+That\'s all there is to it; once a session has been established, the bot
+can start working with the mailbox. This could be tasks such as reading,
+searching, and moving emails. In the next section, we
+will look at how to establish a connection with a
+POP3 and IMAP mailbox to create a session.
 
-![](./images/194.png)
 
-And now here.
 
-Let's open the security tab.
+Connecting to a POP3/IMAP mailbox 
+---------------------------------
 
-![](./images/195.png)
+When connecting to a POP3 or IMAP mailbox, you
+will need the mailbox and credential details. This information would be
+needed whenever you want to connect to your mailbox using any email
+application. The following information is needed to establish a
+connection and read emails:
 
-And now we'll appear here these option app passwords where we can generate a special password to be
+-   Incoming mail server name
+-   Whether SSL is required
+-   Port number
+-   Email address/username
+-   Password
 
-used on a certain app where we want to connect to our email account.
+To give an example of this information, if you were connecting to a
+Gmail account, the details would be as shown in the following figure:
 
-But in order to this option be available to use, first we need to enable the two step verification.
 
-![](./images/196.png)
 
-So if it doesn't appear, make sure you enable first the two step verification.
 
-So you just need to click here and follow the indications and then it should appear here.
+![Figure 13.6 -- Gmail incoming server
+settings](./images/Figure_13.6_B15646.jpg)
 
-This option.
 
-So let's generate a password by clicking here.
 
-Now let's indicate here our credential to connect our email accounts.
 
-![](./images/197.png)
 
-And so now let's hear create a new app password by clicking here on Select Tap.
 
-Now let's like the adoption order and let's right here, for example, automation anywhere.
+For our walk-through, we will be connecting to a Gmail account using
+IMAP, but you can use any mailbox as long as you have the required
+information.
 
-![](./images/198.png)
+Connecting to a Gmail account using IMAP
 
-And now let's click here on generate to generate our app password.
+When connecting to a Gmail account using IMAP, you will need to ensure
+that the session secure app access is set to *on*. If it is set as
+*off*, Automation Anywhere will not be able to connect to your Gmail
+account. This setting is not required when connecting using POP.
 
-![](./images/199.png)
+Further details on how to configure this setting can be found at
+<https://support.google.com/accounts/answer/6010255?hl=en>.
 
-And here we have the password.
+We will enter our email address/password as an insecure string, in this
+case, but alternatively, you can use a variable.
 
-![](./images/200.png)
+Let\'s start this walk-through by executing the
+following steps:
 
-So let's copy this password.
+1.  Expand the step on line **6** titled
+    `"Connecting to POP3/IMAP"`.
 
-And let's face it here on the value of that she would password.
+2.  To create the **IMAP** session, add the **Email: Connect** action
+    just below line **6**, ensuring it is within the step on line **6**.
 
-So let's paste it here.
+3.  Set the following properties for the **Email: Connect** action on
+    line **7**:
 
-And so now let's create our credential by clicking here on Create Credential.
+    **Session name**: `EmailSession`
 
-![](./images/201.png)
+    **Connect to**: **Email server**
 
-So now that we have greater credential, we must create a locker where we will store the credential.
+    **Host**: `imap.gmail.com`
 
-So to create a locker first, let's select here our credential.
+    **Port**: `993`
 
-And now let's click here on this button.
+    **Username**: **Insecure string** -- `******@gmail.com`
+    (*enter your email address*)
 
-![](./images/202.png)
+    **Password**: **Insecure string** -- `*********` (*enter
+    your email password*)
 
-And now here we have to define the locker name so it can be, for example, emails locker, for example.
+    **Use secure connection(SSL/TLS)**: *Checked*
 
-And now here we just have to go to consumers.
+    **Protocol**: **IMAP** (*Select POP3 for a POP3 mailbox connection*)
 
-Select here our user.
+    The properties should look like this:
 
-![](./images/203.png)
+    
+    ![](./images/Figure_13.7_B15646.jpg)
+    
 
-And now we can create the locker.
 
-So now that we have the credential and the locker created, let's go back again to why we're both.
 
-And now here on credential, let's click on Big.
+4.  Click on **Save**.
 
-![](./images/204.png)
+5.  To disconnect from the mailbox, just add the **Email: Disconnect**
+    action below line **7**, ensuring it is aligned to the action on
+    line **7**.
 
-Now first we must select the locker that we have created and now will appear the credential that we
+6.  Set the following property for the **Email: Disconnect** action on
+    line **5**:
 
-have created.
+    **Session name**: `EmailSession`
 
-And now we must indicate that throughput.
+    The property should look like this:
 
-So in this case will be the email for the username.
+    
+    ![Figure 13.8 -- Email: Disconnect
+    property](./images/Figure_13.8_B15646.jpg)
+    
 
-And not what's the same for the password?
 
-So here, let's pick the credential.
 
-![](./images/205.png)
+7.  Click on **Save**. Your development interface for this section
+    should look like this:
 
-Now let's get that throughput password.
 
-So let's see if it's working well.
 
-So let's just run and see if we get some exceptions or not.
 
-So let's click here on run.
+![](./images/Figure_13.9_B15646.jpg)
 
-![](./images/206.png)
 
-And as you can see, our  bot  has run successfully.
 
-![](./images/207.png)
 
-So the connection to our email, it's working well.
 
-In the last lab, we connected the board to our email and in this one we will get the emails from
 
-our inbox and apply a filter first to get the emails from our inbox.
+That\'s another connection established. You should now be comfortable
+with connecting to mailboxes using the POP3 or IMAP protocol. Another
+popular type of mailbox is **Exchange Server**. We will learn how to
+connect to an Exchange mailbox in the next section.
 
-We need to use the action loop.
 
-So let's go here to actions and type loop and drag this action to our bot.
 
-![](./images/208.png)
+Connecting to an EWS mailbox 
+----------------------------
 
-And this action will allow us to perform a loop and repeat the actions inside here until the loop breaks
+When connecting to an Exchange mail server, only a
+few pieces of information are needed. The following information would be
+required whenever you want to connect to your mailbox using any email
+application to read emails:
 
-and how he breaks when we don't have more emails in our case.
+-   Username or email address
+-   Password
+-   Domain name (optional)
+-   Exchange server version
 
-So this activity, this action will allow us to get our emails.
+To give an example of this information, if you were connecting to an
+Outlook Exchange account, the details would be as shown in the following
+figure:
 
-So let's see here our image.
 
-![](./images/209.png)
 
-So inside this loop we will have the action that will reply to the email and save the attachment and
 
-until we have emails to process, we'll perform a loop for each email.
+![Figure 13.10 -- Outlook Exchange Server
+settings](./images/Figure_13.10_B15646.jpg)
 
-And when when done we don't have more, we'll go.
 
-We'll break the loop.
 
-So here in the properties we need to choose the iterator so we can perform a loop for each row in the
 
-table, for each query data set for each value in the dictionary.
 
-![](./images/210.png)
 
-So here we have many types of iterators, but the one that we want is from email is for each mail in
+For our walk-through, we will be connecting to an Outlook Exchange
+Server account, but you can use any Exchange mailbox as long as you have
+the required information. As we did in the *Connecting to a POP3/IMAP
+mailbox* section previously, we will enter the email address/password as
+an insecure string.
 
-mailbox.
+Let\'s start this walk-through by executing the following steps:
 
-So let's select this option.
+1.  Expand the **Step** on line **9** titled
+    `"Connecting to EWS"`.
 
-And now we can apply a filter to the email.
+2.  To create the Exchange session, add the **Email: Connect** action
+    just below line **9**, ensuring it is within the step on line **9**.
 
-So here in session name needs to be the same as we have here in the connection.
+3.  Set the following properties for the **Email: Connect** action on
+    line **10**:
 
-Here we can filter.
+    **Session name**: `EmailSessionEWS`
 
-For example, if we just want to get rid of the emails, we click here.
+    **Connect to**: **EWS server**
 
-If we just want to get rid of, click here.
+    **Username**: **Insecure string** -- `******@outlook.com`
+    (*enter your email address*)
 
-I want to get all.
+    **Password**: **Insecure string** -- `*********` (*enter
+    your email password*)
 
-So click here.
+    **Enter Domain name (optional)**: `outlook.com`
 
-Here we can say specific folder of the email that we just want to get emails from this folder.
+    **Exchange Version**: **Exchange2010**
 
-I will let like this the inbox here, we can filter by the subject.
+    The properties should look like this:
 
-So for example here, for example, let's say that we just want emails that have the subject automation
+    ![](./images/Figure_13.11_B15646.png)
 
-and your course.
 
-So if we type here automation anywhere, course we will just get emails with this subject.
 
-And here we can apply a filter from to get just emails from specific senders.
+4.  Click on **Save**.
 
-So in this case we will use these ones.
+5.  To disconnect from the mailbox, just add the **Email: Disconnect**
+    action below line **10**, ensuring it is aligned to the action on
+    line **10**.
 
-So for example, if here are some emails, let's imagine that we just want to get emails from this one.
+6.  Set the following property for the **Email: Disconnect** action on
+    line **11**:
 
-You should use one on your side.
+    **Session name**: `EmailSessionEWS`
 
-For example, I will just copy this email and let's here just paste like this.
+    The property should look like this:
 
-Here we can apply a filter by the date here.
+    
+    ![Figure 13.12 -- Email: Disconnect
+    property](./images/Figure_13.12_B15646.jpg)
+    
 
-Message format.
 
-Let's click on play text to get clean text without HTML tags.
 
-And now we need to assign a variable.
+7.  Click on **Save** and your development interface for this section
+    should look like this:
 
-Create a variable that will contain basically the information of the email.
 
-So to create the variable, let's click here.
 
-![](./images/211.png)
 
-And now let's for example, use the name Vic email.
+![](./images/Figure_13.13_B15646.jpg)
 
-And will be of the type dictionary.
 
-So basically variable of type dictionary is a variable that contains the many values.
 
-For example, in this case our variable will contain uh, the sender or the sender of the email will
 
-contain the subject.
 
-The body so contains multiple values, this type of variable.
 
-So now let's just create the variable.
+Great job! In this section, you\'ve learned how to connect to the
+different types of mailboxes. The complete development interface for all
+the mailbox connections should look like this:
 
-![](./images/212.png)
 
-And now we have already to read to get the email.
 
-So we will now test if it's working.
 
-So to see our the emails that we are getting in the visual way, we will use the action message box
+![](./images/Figure_13.14_B15646.jpg)
 
-that will display to us in the message box, the text of our email.
 
-So let's drag this message box inside the loop so it needs to be inside to for each email performs this
 
-action that will shows the text of each email.
 
-![](./images/213.png)
 
-And now we need to specify, uh, the message that the our action will display.
 
-So here in the message property, we will define to get the subject of each email and the the message.
+If you run the bot, it will look as if it hasn\'t
+done much, but your bot has connected to each mailbox and disconnected.
+As long as the mailbox and the credentials are correct, the bot will
+complete the task without raising any errors.
 
-So let's type here subject for example.
+Before we move on to the next section, let\'s ensure that our bot is
+neat and tidy. You can collapse the step on line **2** and then disable
+this step by clicking on the three dots on line **2** and selecting
+**Disable action**. As you are disabling the step, all the actions and
+the sub-steps within this step will be disabled:
 
-And now we need to call our variable that we created the dictionary and just get the value of the subject.
 
-So let's see or click on this button to call our variable.
 
-![](./images/214.png)
 
-And let's click here on email.
+![Figure 13.15 -- Disable step
+action](./images/Figure_13.15_B15646.jpg)
 
-Our dictionary.
 
-And now we need to say the key of the subject.
 
-![](./images/215.png)
 
-So here we we type the key and the key will give us certain value.
 
-So I have here a page that of the documentation of automation anywhere that says the keys.
 
-For example, if we want to get just the email subject, we need to type the key email subject.
+Our bot is now nice and tidy and we are ready to
+move on to the next section. In the next section, we will learn how to
+read emails from your mailbox and save attachments.
 
-![](./images/216.png)
 
-If we want to get just the email message, we need to type the key email message.
 
-So just works like this.
 
-It's very simple.
 
-So for example, in this case we need to type the key email subject and insert.
+Reading emails and attachments 
+==============================
 
-And in this way we will get just the email subject here.
 
-And now let's here type enter.
+Once connected to our
+mailbox, we want our bot to process emails in one
+form or another. More than likely, our manual task would involve working
+with specific emails, such as emails sent from a particular sender. It
+could also include saving any attachments from our emails. In this
+section, you will learn how to create a loop to iterate through the
+inbox and only read unread emails from a specific sender. The bot will
+then change the email status to read and save any attachments.
 
-And let's type here message.
+You will also be introduced to the `Dictionary` type variable;
+Automation Anywhere already has a pre-built dictionary for emails. A
+`Dictionary` type variable stores a value for a given key
+value. Together, these are known as a **key-value
+pair**. For each email that your bot reads, the `Dictionary`
+variable will store the following information:
 
-![](./images/217.png)
 
-And we will call here just the value of the message.
 
-So it's the same.
 
-We can click here or directly let's do dollar, sign the email.
+![Figure 13.16 -- Email
+dictionary](./images/Figure_13.16_B15646.jpg)
 
-And now let's open here and just delete this and let's type the key email message and dollar sign again.
 
-And now we should just get emails from the sender.
 
-The sender in my case, and in plain text and with a message box for each email saying the subject and
 
-the message.
 
-So let's go test if it's working, let's click here on Run.
 
-It's deploying in our computer.
+For this walk-through, we will use Outlook as our mailbox. You can,
+however, apply a different type of connection if
+you wish. As we have disabled the previous actions from our bot, we
+can continue using the same task bot. Before we
+add any actions for the bot to perform, we will
+begin by building the skeleton structure with comments and steps. You
+will build a bot that performs the following tasks:
 
-![](./images/218.png)
+1.  Loops through emails in the inbox
+2.  Applies filters and specifies folders
+3.  Updates email status
+4.  Saves attachments
 
-So we've already got our first email, so let's check.
+Let\'s start this walk-through by executing the following steps:
 
-So here on my account we can see, uh, automation anywhere.
+1.  Add a step just below line **12**, set the **Title** property as
+    `"Reading Emails"`, and click on **Save**.
+2.  Add a new **Comment** action as
+    `"------- Connect to Mailbox"` on line **14**, ensuring it
+    is within the **Step** on line **13**, and click on **Save**.
+3.  Add a new **Comment** action as
+    `"------- Loop through Inbox"` on line **15**, ensuring it
+    is within the **Step** on line **13**, and click on **Save**.
+4.  Add a new **Comment** action as `"------- Update Status"`
+    on line **16**, ensuring it is within the **Step** on line **13**,
+    and click on **Save**.
+5.  Add a new **Comment** action as
+    `"------- Save Attachments"` on line **17**, ensuring it
+    is within the **Step** on line **13**, and click on **Save**.
+6.  Add a new **Comment** action as
+    `"------- Disconnect Mailbox"` on line **18**, ensuring it
+    is within the **Step** on line **13**, and click on **Save**.
+7.  Add a new **Comment** action as
+    `"---------------------------------"` on line **19** and
+    click on **Save**. Your initial
+    development interface should look like this:
 
-Course.
 
-![](./images/219.png)
 
-Let's see.
 
-It's from the email that I defined just to get emails so you can see here, Let's close.
+![](./images/Figure_13.17_B15646.jpg)
 
-![](./images/220.png)
 
-We got another email, let's verify.
 
-So was formed from this one.
 
-We can see here it's the center that we specified to get just emails from.
 
-And now should close the automation.
 
-So as you can see, we applied with success.
+That\'s great! We now have a structure for our walk-through. As we did
+in the previous section, *Connecting to mailboxes*, we will begin by
+creating our connection to Outlook:
 
-![](./images/221.png)
+1.  To create the Outlook session, add the **Email: Connect** action
+    just below line **14**, ensuring it is within the step on line
+    **13**.
 
-We are getting the emails and we are applying a filter and we can so display get the values from the
+2.  Set the following properties for the **Email: Connect** action on
+    line **15**:
 
-email like the subject and the message.
+    **Session name**: `EmailSession`
 
-And in the next lab we will learn how to reply to emails.
+    **Connect to**: **Outlook**
 
-So we will develop our test bot to reply to the sender of each email that we get.
+    The properties should look like this:
 
-In the last lab we develop the bot to get emails and apply a filter.
+    
+    ![](./images/Figure_13.18_B15646.jpg)
+    
 
-And in this one we'll develop the bot to reply to each email.
 
-![](./images/222.png)
 
-So to reply to each email we need to use the action reply from email and drag it inside the loop to
+3.  Click on **Save**.
 
-so to reply to each email to each loop.
+4.  Let\'s also add the
+    disconnect action by adding **Email:
+    Disconnect** just below line **19**, ensuring it is aligned to the
+    **Comment** action on line **19**.
 
-So.
+5.  Set the following property for the **Email: Disconnect** action on
+    line **20**:
 
-Here in this section, we have some properties we can specify here, some people, some emails in CC,
+    **Session name**: `EmailSession`
 
-for example, send attachment.
+    The property should look like this:
 
-![](./images/223.png)
+    
+    ![Figure 13.19 -- Email: Disconnect
+    property](./images/Figure_13.19_B15646.jpg)
+    
 
-It's optional.
 
-Here we define if we want, send the email as plain text or HTML.
 
-Let's use the plain text here.
+6.  Click on **Save** and your development
+    interface for this section should
+    look like the following:
 
-We can type the message that we want send.
 
-So for example, in this case, let's say email read.
 
-VI.
 
-Automation anywhere to squat.
+![](./images/Figure_13.20_B15646.jpg)
 
-And that's your thought here.
 
-We can say if you want to include a message, a default message from automation anywhere that is encouraging
 
-to protect the environment.
 
-Let's let let's check this option.
 
-And now we need to say the email server.
 
-So, so we need to say here the host of our email server is smtp.gmail.com, the email port, the email
+We have now established the connection to the mailbox. In the next
+section, you will learn how to add a **Loop** action so that the bot can
+read email messages from the inbox.
 
-server port, it's four, six five.
 
-And here we need to check this option to do the authentication.
 
-![](./images/224.png)
+Looping through emails from a folder 
+------------------------------------
 
-So now let's pick our credential here.
+Once we have the loop in place, we will need a
+variable to store details of each individual
+email. For an email message, we will use the `Dictionary`
+variable type. Follow the given walk-through to guide you on how to
+build the loop and store each email:
 
-![](./images/225.png)
+1.  For our `Dictionary` variable type, create a new variable
+    called `dctEmail` and set **Type** to **Dictionary** and
+    **Subtype** to **String**, as follows:
 
-Let's click on our log credential email and here the email attributes.
+    
+    ![Figure 13.21 -- Creating a Dictionary variable
+    type](./images/Figure_13.21_B15646.jpg)
+    
 
-And now to the password.
 
-It's the same.
 
-Let's pick our lock our credential and attribute password.
+2.  To add our loop to read all emails, drag the **Loop** action just
+    below line **16**, ensuring it is aligned to the **Comment** action
+    on line **16**.
 
-I'll.
+3.  Set the following properties for the **Loop** action on line **17**:
 
-Let's confirm.
+    **Loop Type**: **Iterator**
 
-![](./images/226.png)
+    **Iterator**: **For each mail in mail box**
 
-So in this way the bot should reply to each email that we get.
+    **Session name**: `EmailSession`
 
-So let's here click on Run and now I will open the the email that the bot will reply the the email that
+    **Type of email to get**: **ALL**
 
-we defined in the filter.
+    **Message format**: **PLAINTEXT**
 
-![](./images/227.png)
+    **Assign the current value to variable**: **dctEmail -- Dictionary
+    of Strings**
 
-So I will open near the email box.
+    The properties should
+    look like this:
 
-![](./images/228.png)
+    
+    ![](./images/Figure_13.22_B15646.jpg)
+    
 
-The bot is starting to run.
 
-So we got now our emails.
 
-![](./images/229.png)
+4.  Click on **Save**.
 
-Our first email.
+That\'s great! You have learned how to add a
+**Loop** action so that your bot can read each
+email from your mailbox. In the next section, you will learn how to add
+filters and specify folders to read.
 
-Let's close.
 
-And now the bot should reply to the email.
 
-So for example, let's here just refresh and we can see the bot did a reply to to the email.
+Applying filters and specifying folders 
+---------------------------------------
 
+The bot will read all emails from the connected
+mailbox, but to perform specific tasks, we often
+need to work with specific emails. To allow our bot to only look for
+emails that meet certain criteria, we can apply filters within our loop.
+These filters include the following:
 
-![](./images/230.png)
+-   Specifying the email status
+-   Specifying the mailbox folders
+-   Specifying the email subject line text
+-   Specifying the email sender
+-   Specifying the date and time of the received email
 
-Let's see here.
+For this walk-through, we want our bot to only look for emails in the
+inbox that are unread. To configure our bot to only loop through these
+specific emails, execute the following steps:
 
-Like you can see the, the message that we defined and the default message that is encouraging to protect the environment.
+1.  Update the loop properties for the **Loop** action on line **17**:
 
-![](./images/231.png)
+    **Type of email to get**: **UNREAD**
 
-And now the bot should reply to one more email.
+    **From a specific folder (optional)**: `Inbox`
 
-So we have this one.
+    The properties should look like this:
 
-Let's close and now.
+    
+    ![](./images/Figure_13.23_B15646.jpg)
+    
 
-We will refresh our email box so you can see that the bot did a reply.
 
-![](./images/232.png)
 
-So let's open just the email and we can see here the message.
+2.  Click on **Save**.
 
-![](./images/233.png)
+As you can see, all the filters are configured on
+the **Loop** action. In the following subsections,
+we will outline all the other filters that can be applied.
 
+### Specifying the email status
 
+You have just updated the email status filter, but
+you can see, as per the following screenshot, that
+you have an option to select either **ALL**, **READ**, or **UNREAD**
+emails only:
 
-Now we will learn how to save the attachments included in the email.
 
-So it's very simple.
 
-To save the attachments, we need to go to actions and type save attachment.
 
-So let's use this action.
+![Figure 13.24 -- Email loop -- status
+filter](./images/Figure_13.24_B15646.jpg)
 
-![](./images/234.png)
 
-And drag it inside the loop to to do for each email.
 
-And now we just need to say a folder where we want store the attachments.
 
-So.
 
-So for example, I will create a folder here, let's say.
 
-Automation.
+### Specifying the mailbox folders
 
-![](./images/235.png)
+You can set a specific folder here. Wildcard
+characters can also be used as part of the folder name. Nested
+subfolders can be specified using the `Inbox/SubFolder1`
+format. If needed, variables can also be used to enter this value. The
+following screenshot shows how to set `Inbox` as the specified
+folder:
 
-Anywhere attachments.
 
-![](./images/236.png)
 
-And now let's copy the path and let's paste here.
 
-And now we need to say here, if we want to overwrite files.
+![Figure 13.25 -- Email loop -- folder
+filter](./images/Figure_13.25_B15646.jpg)
 
-![](./images/237.png)
 
-So, for example, if we got two attachments with the same name, the last one, if we have this option
 
-checked, will overwrite the the one stored.
 
-So let's check this option like this.
 
-And so in my case, you can see here that we got we have here two emails that we are getting from this
 
-sender and the the two emails have the same attachment with the same name.
+### Specifying the email subject line text
 
-![](./images/238.png)
+To set a particular text in the subject line, you
+can do so here. If needed, **String** type
+variables can also be used to enter this value:
 
-So in my case should just be stored one.
 
-So, um, let's see here what will happen.
 
-So I will open here my task bot and just click here on run.
 
-![](./images/239.png)
+![Figure 13.26 -- Email loop -- subject
+filter](./images/Figure_13.26_B15646.jpg)
 
-So we already got our first email.
 
-![](./images/240.png)
 
-Let's close the message box.
 
-And now let's see if you already have the attachment on our computer.
 
-So you can see here in the final folder that we defined in the action we have here.
 
-![](./images/241.png)
+### Specifying the email sender
 
-So the attachment that exists on the email.
+Here, you can look at emails from a specific
+sender. Enter the sender\'s email address (you can also enter multiple
+email addresses separated by a semicolon). If needed, `String`
+type variables can also be used to enter this value:
 
-So now let's close this message box and now we can see here that we just have one PDF because of the
 
-overwrite.
 
-![](./images/242.png)
 
-So they have the same name.
+![Figure 13.27 -- Email loop -- sender
+filter](./images/Figure_13.27_B15646.jpg)
 
-Now we will develop our task bot to in the end of the loop.
 
-So after get all emails, send a message to a specific email.
 
-So to send a message to a specific email we need to use the action send.
 
-![](./images/243.png)
 
-So let's type here, send and drag this action after the loop.
 
-So not inside the loop after the loop.
+### Specifying the date and time of the received email
 
-So by this way the bot will just use this action after get all emails.
+You can also set a date/time filter. Again,
+variables can be used here, but they need to be of the
+`Datetime` type:
 
-![](./images/244.png)
 
-And as you can see here, we use the reply here we will use the sensor.
 
-So the difference here is that the in reply action, we don't need to say the the email that we want,
 
-send the email because automation anywhere already knows when we are getting each email in the send
+![Figure 13.28 -- Email loop -- date/time
+filter](./images/Figure_13.28_B15646.jpg)
 
-one we need to say so like you can see here the address, the email address that we want, send the
 
-email.
 
-So first, let's say here the address.
 
-So you type the one address that you have or you know, I will type here one specific address.
 
-So let's type here.
 
-Now here we can see the subject.
+Hopefully, this has given you an overview of how you would configure
+your bot to apply the different types of filters to your **Loop**
+action. As we continue with our walk-through, we have already added our
+loop. All our actions for each email need to be moved to within our
+loop.
 
-So let's say automation, execution, for example, the subject of the email.
+Let\'s continue with our bot by moving our comments so that they are
+inside our loop:
 
-So here the email.
+1.  Drag the **Comment** actions to lines **18** and **19** so that they
+    are within the loop on line **17**.
+2.  Click on **Save** and your development window should be looking like
+    this:
 
-So we will send in plain text here.
 
-The message, let's say, for example, automation executed with success.
 
-So now we need to say the address that the bot will use, the email that the bot will use to send the
 
-email.
+![](./images/Figure_13.29_B15646.jpg)
 
-So I will type here.
 
-One email.
 
-Now we need to say here the email server also is the smtp.gmail.com.
 
-And now the part is.
 
-Four, six, five.
 
-So let's live like this.
+All looking good so far; the bot will now loop
+through all unread emails in the inbox. In the next section, we will
+look at how to update the email status.
 
-Let's hear shake through use connection.
 
-Now let's click on through to use the authentication.
 
-![](./images/245.png)
+Updating the email status 
+-------------------------
 
-And now we just need to pick the credentials.
+As our bot will only be processing unread emails,
+we do not want it to duplicate the process
+multiple times for the same email. If we update the email status to
+**READ**, it will ensure that the same email is not picked up by the bot
+again.
 
-So let's click here in our locker credentials, email and now email attributes confirm.
+Let\'s start this walk-through by executing the following steps:
 
-![](./images/246.png)
+1.  To update the status, add the **Email: Change status** action just
+    below line **18**, ensuring it is aligned to the **Comment** action
+    on line **18**.
 
-And now let's pick our password.
+2.  Set the following properties for the **Email: Change status** action
+    on line **19**:
 
-And password attributes confirm.
+    **Session name**: `EmailSession`
 
-![](./images/247.png)
+    **Change status to**: `Read`
 
-And now the what's after process.
+    The properties should look like this:
 
-Ishmael should send a message to the email address that you specified here on the property.
+    
+    ![](./images/Figure_13.30_B15646.jpg)
+    
 
-So let's test if the automation is working.
 
-So if the test bot is sending in, then the email.
 
-So let's just remove this action because isn't needed.
+3.  Click on **Save**.
 
-So let's remove, let's click here and delete action.
+Great progress! Your bot will now update the
+status of each unread email to read, ensuring any
+processing is not duplicated. Quite often, we work with attachments in
+our emails. In the next section, you will learn how to save email
+attachments.
 
-![](./images/248.png)
 
-And now let's just run our bot.
 
-So let's click here and let's see what will happen.
+Saving attachments 
+------------------
 
-So you can see here that the bot has run successfully the automation.
+When automating tasks that involve email, we tend
+to perform tasks with attached documents. We will
+continue with our walk-through and further build the bot. Here, you will
+learn about managing attached documents. We will instruct our bot to
+save any attachments to a specific folder.
 
-![](./images/249.png)
+To ensure the bot is robust, we will check whether the target folder
+exists and create it if it doesn\'t. We will configure our bot to save
+any attachments to the folder at
+`C:\Hands-On-RPA-with-AA-Sample-Data\Chapter13_Emails`.
 
-And now let's close this pop up and I will open the email that should get the the email that the bot
+Let\'s start this walk-through by executing the following steps:
 
-sends.
+1.  To check whether our target folder exists, add the **If** action
+    just below line **20**, ensuring it is aligned to the **Comment**
+    action on line **20**.
 
-![](./images/250.png)
+2.  Set the following
+    properties for the **If** action on line
+    **21**:
 
-And now as you can see, I got the email with the subject automation execution.
+    **Condition**: **Folder does not exist**
 
-So saying that the automation executed with success.
+    **Folder path**:
+    `C:\Hands-On-RPA-with-AA-Sample-Data\Chapter13_Emails`
 
+    **How long you would like to wait for this condition to be
+    true?(Seconds)**: `0`
+
+    The properties should look like this:
+
+    
+    ![](./images/Figure_13.31_B15646.jpg)
+    
+
+
+
+3.  Click on **Save**.
+
+4.  To create the folder if it doesn\'t exist, add
+    the **Folder: Create** action just below line
+    **21**, ensuring it is within the **If** action on line **21**.
+
+5.  Set the following properties for the **Folder: Create** action on
+    line **22**:
+
+    **Folder**:
+    `C:\Hands-On-RPA-with-AA-Sample-Data\Chapter13_Emails`
+
+    **Overwrite an existing folder**: *Unchecked*
+
+    The properties should look like this:
+
+    
+    ![](./images/Figure_13.32_B15646.jpg)
+    
+
+
+
+6.  Click on **Save**.
+
+7.  We are now ready to add the action to save any
+    email attachments. Add the **Email: Save
+    attachments** action just below line **22**, ensuring it is within
+    the **Loop** action on line **17** but not within the **If**
+    condition on line **21**. We will set the **Overwrite files**
+    property to `True`, as we may test the bot multiple times
+    and we do not want it to fail while trying to save an attachment
+    that already exists.
+
+8.  Set the following properties for the **Email: Save attachments**
+    action on line **23**:
+
+    **Save attachments to folder**:
+    `C:\Hands-On-RPA-with-AA-Sample-Data\Chapter13_Emails`
+
+    **Overwrite file(s)**: *Checked*
+
+    The properties should look like this:
+
+    
+    ![](./images/Figure_13.33_B15646.jpg)
+    
+
+
+
+9.  Click on **Save**.
+
+10. Just one final action left. Let\'s add a message box so that we can
+    see the contents of each email the bot reads.
+    For this, we will use the
+    `Dictionary` variable we created. Add the **Message box**
+    action just below line **23**, ensuring it is within the **Loop**
+    action on line **17** but not within the **If** condition on line
+    **21**.
+
+11. Set the following properties for the **Message box** action on line
+    **24**:
+
+    **Enter the message box window title**: `Reading Emails`
+
+    **Enter the message to display**:
+
+    `subject: |$dctEmail{emailSubject}$|`
+
+    `From: |$dctEmail{emailFrom}$|`
+
+    `Message: |$dctEmail{emailMessage}$|`
+
+    **Scrollbar after lines**: `30`
+
+    **Close message box after**: *Checked*
+
+    **Seconds**: `5`
+
+    The properties should look like this:
+
+    
+    ![](./images/Figure_13.34_B15646.jpg)
+    
+
+
+
+12. Click on **Save**. The development
+    window for the **Reading Emails** section
+    should look like this:
+
+
+
+
+![](./images/Figure_13.35_B15646.jpg)
+
+
+
+
+
+
+You can send yourself some
+emails and test your bot. Ensure you have the correct incoming server
+details if you are not using Outlook. The bot will read the new emails,
+save all attachments, and update the status. Good work. We will next
+look at sending emails.
+
+
+
+
+
+Sending emails and attachments 
+==============================
+
+
+We have looked at connecting with incoming
+mail servers to read emails.
+We will now move on to the next section, where we will be exploring how
+to send emails. Emails are always sent in one of the following three
+ways -- either a simple independent email, a forwarded message, or a
+reply. For all three, you will need to know the outgoing mailbox
+details. As it is the same with reading emails, you can send an email
+via Outlook, POP3/IMAP, or Exchange. The information needed for the
+outgoing server is as follows:
+
+-   Outgoing mail server name
+-   Whether SSL/TLS/authentication is required
+-   SSL/TLS port number
+-   Email address/username
+-   Password
+
+To give an example of this information, if you were connecting to a
+Gmail account, the outgoing server IMAP details would be as shown in the
+following figure:
+
+
+
+
+![Figure 13.36 -- Gmail IMAP outgoing server
+settings](./images/Figure_13.36_B15646.jpg)
+
+
+
+
+
+
+For our walk-through, we will be demonstrating how to perform the
+following actions:
+
+-   Sending an email
+-   Forwarding an email
+-   Replying to an email
+
+When forwarding or replying to an email, a source email is needed. For
+instance, you need an initial email in order to reply to it and you need
+an initial email in order to forward it. This is why both the **Reply**
+and **Forward** actions need to be performed within an email session.
+This ensures they have a source email to work with. When just sending an
+email by itself, a session is not needed as it\'s not dependent on a
+source email.
+
+For this walk-through, we will demonstrate all three methods of sending
+an email. As always, we will start by
+creating the skeleton using comments and steps.
+
+Let\'s start this walk-through by executing the
+following steps:
+
+1.  Add a step just below line **27**, set the **Title** property as
+    \"`Sending Emails"`, and click on **Save**.
+2.  Add a new **Comment** action as
+    `"------- Sending an Email"` on line **29**, ensuring it
+    is within the **Step** on line **28**, and click on **Save**.
+3.  Add a new **Comment** action as
+    `"------- Forwarding an Email"` on line **30**, ensuring
+    it is within the **Step** on line **28**, and click on **Save**.
+4.  Add a new **Comment** action as
+    `"------- Replying to an Email"` on line **31**, ensuring
+    it is within the **Step** on line **28**, and click on **Save**.
+5.  Add a new **Comment** action as `"---------------------"`
+    on line **32**, and click on **Save**. Your development interface
+    should look as in the following screenshot:
+
+
+
+
+![](./images/Figure_13.37_B15646.jpg)
+
+
+
+
+
+
+That\'s good, we now have a structure for our demonstration. In the next
+section, we will start by looking at sending a
+simple email and then one
+that includes an attached document.
+
+
+
+Sending an email 
+----------------
+
+For this walk-through, we
+will use a Gmail account to send our email. We
+know what the SMTP outgoing server settings need to be for this. You
+will need to know your email account credentials for testing.
+
+Connecting to a Gmail account using IMAP
+
+When connecting to a Gmail account using IMAP, you will need to ensure
+that the less secure app access is set to *on*. If it is set as *off*,
+Automation Anywhere will not be able to connect to your Gmail account.
+This setting is not required when connecting using POP.
+
+Further details on how to configure this setting can be found at
+<https://support.google.com/accounts/answer/6010255?hl=en>.
+
+Let\'s begin by executing the following steps:
+
+1.  To send our email, add the **Email: Send** action just below line
+    **29**, ensuring it is within the step on line **28**.
+
+2.  There are a number of properties to set for the **Email: Send**
+    action. Starting with the recipient and subject details, set the
+    following properties for the **Email: Send** action on line **30**:
+
+    **To address**: `******@gmail.com` (*the email address you
+    are sending to*)
+
+    **Subject**: `RPA – Sending Emails`
+
+    These property settings should look like this:
+
+    
+    ![](./images/Figure_13.38_B15646.jpg)
+    
+
+
+
+3.  Continue with
+    configuring the **Email: Send** action on line
+    **30** by adding the following settings to configure the message
+    contents:
+
+    **Send email as**: **Plain text**
+
+    **Message**: `This is message sent from your RPA Bot`
+
+    These property settings should look like this:
+
+    
+    ![](./images/Figure_13.39_B15646.jpg)
+    
+
+
+
+4.  Finally, to configure the outgoing server
+    connection details, add the following settings
+    for the **Email: Send** action on line **30**:
+
+    **Send email via**: **Email server**
+
+    **From address**: `******@gmail.com` (*email address you
+    are sending from*)
+
+    **Email server host**: `smtp.gmail.com`
+
+    **Email server port**: `587`
+
+    **Use secure connection (SSL/TLS)**: **True**
+
+    **My server requires authentication**: **True**
+
+    **Username (optional)**: **Insecure string** --
+    `******@gmail.com` (*enter your email address*)
+
+    **Password (optional)**: **Insecure string** --
+    `*********` (*enter your email password*)
+
+    These properties should look like this:
+
+    
+    ![](./images/Figure_13.40_B15646.jpg)
+    
+
+
+
+5.  Click on **Save**.
+
+All set to send an email, great work! As long as
+you have the correct mail server settings, it
+should all be good to go. We will continue by adding an attachment to
+this email in the following section.
+
+### Attaching a document to an email
+
+Here, we will further build on our bot and add an
+attachment to our email. This is all done within
+the **Email: Send** action. Follow the given steps to add a document to
+the email:
+
+1.  To add an attachment, update the following property for the **Email:
+    Send** action on line **30**:
+
+    **Attachment (optional)**: **Desktop file** --
+    `C:\Hands-On-RPA-with-AA-Sample-Data\Chapter05_InputData.csv`
+
+    The property should look like this:
+
+    
+    ![Figure 13.41 -- Email: Send -- attach document
+    property](./images/Figure_13.41_B15646.jpg)
+    
+
+
+
+2.  Click on **Save**.
+
+Your bot can now send an email. To do this, you don\'t need an email
+session; all the required information is contained within the **Email:
+Send** action. In the next section, we will look at forwarding an email.
+
+
+
+Forwarding an email 
+-------------------
+
+You can only perform an **Email: Forward** action
+from within an email session and loop. There needs
+to be a source email that you are actually forwarding, but apart from
+that, all that\'s needed is the forwarding email address, a message
+(optional), and your outgoing server mailbox details.
+
+In this example, we will use Outlook as our outgoing mailbox. Let\'s
+assume you have already built your email session and loop to read your
+emails from your incoming mailbox. To configure your bot to forward an
+email, just follow these steps:
+
+1.  Add the **Email: Forward** action just below line **31**, ensuring
+    it is within the step on line **28**.
+
+2.  Set the following properties for the **Email:
+    Forward** action on line **32**:
+
+    **To address**: `******@gmail.com` (*the email address you
+    are forwarding the message to*)
+
+    **Send email as**: **Plain text**
+
+    **Message (optional)**:
+    `This email is forwarded by your RPA Bot`
+
+    **Send email via**: **Outlook**
+
+    The properties should look like this:
+
+    
+    ![](./images/Figure_13.42_B15646.jpg)
+    
+
+
+
+3.  Click on **Save**.
+
+It\'s as simple as that; attachments can be added in the same way as you
+would when sending a standard email. Only one more
+type of email sending to go -- that is, replying
+to an email, which we will look at next.
+
+
+
+Replying to an email 
+--------------------
+
+Just like forwarding an email, you can only
+perform an **Email: Reply** action from within an
+email session and loop. In this example, we will again use Outlook as
+our outgoing mailbox and once again assume you have already built your
+email session and loop to read your emails from your incoming mailbox.
+To configure your bot to reply to an email, just follow the given steps:
+
+1.  Add the **Email: Reply** action just below line **33**, ensuring it
+    is within the step on line **28**.
+
+2.  Set the following properties for the **Email: Reply** action on line
+    **34**:
+
+    **Send email as**: **Plain text**
+
+    **Message (optional)**:
+    `This email is a reply by your RPA Bot`
+
+    **Send email via**: **Outlook**
+
+    The properties should look like this:
+
+    
+    ![](./images/Figure_13.43_B15646.jpg)
+    
+
+
+
+3.  Click on **Save**. The development window for
+    the **Reading Emails** section should look
+    like this:
+
+
+
+
+![](./images/Figure_13.44_B15646.jpg)
+
+
+
+
+
+
+You have done absolutely great! All three types of outgoing emails are
+completed. Again, attaching files works the same
+in all three. Your bot is ready for any
+email-related automation you need.
+
+
+
+
+
+Summary 
+=======
+
+
+This lab has been about everything related to email. The
+walk-throughs have demonstrated how to connect to the different types of
+mail servers, as well as using Outlook. You learned how to read from any
+email folder using specified criteria, such as a certain sender or a
+particular value in the subject line. You further built your knowledge
+of learning how to send emails, including replying and forwarding
+emails. That\'s not all; we also included how to save and add
+attachments to our emails.
+
+In the next lab, we will move on to using automation with PDF files.
+PDF files are very popular and are commonly used. There are many uses --
+one being invoices. You will learn how to use a bot to read PDF files,
+including extracting text and images. You will also learn how to split
+and merge documents and decrypt and encrypt PDF files.
