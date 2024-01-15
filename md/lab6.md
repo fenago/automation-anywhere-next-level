@@ -40,6 +40,32 @@ requirements are necessary:
 -   Successfully downloaded sample data from GitHub
 
 
+Downloading sample data from GitHub 
+===================================
+
+
+Download the whole file structure to your root
+folder. I use my `C:\` drive as my root folder. The course will
+be referring to this folder to help identify the location of files that
+will be needed. You do not need a GitHub account to download the
+repository.
+
+To download the complete repository needed for this course, perform the
+following steps:
+
+1.  Navigate to the GitHub repository from your web browser using the
+    following link:
+    <https://github.com/fenago/automation-anywhere-next-level>:
+
+2.  To download, click on the green **Clone or download** button. This
+    will open a small dialog box, and then click on **Download ZIP**:
+
+3.  This will begin the downloading of the compressed
+    `automation-anywhere-next-level.zip` file.
+
+4.  Once the ZIP file has been downloaded, extract it all and copy `automation-anywhere-next-level/Hands-On-RPA-with-AA-Sample-Data` folder into `C:\` drive:
+
+5.  Close the GitHub page.
 
 
 
