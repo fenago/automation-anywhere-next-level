@@ -1,4 +1,4 @@
-Lab 8: Building Modular Bots and Sub-Tasks 
+Lab: Building Modular Bots and Sub-Tasks 
 ==========================================
 
 In this lab, we will cover the following:

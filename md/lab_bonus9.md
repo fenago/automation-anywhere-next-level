@@ -1,4 +1,4 @@
-Lab 10: Error Handling
+Lab : Error Handling
 ======================
 
 In this lab, we will be using the following packages:

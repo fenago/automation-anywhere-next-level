@@ -1,4 +1,4 @@
-Lab 7: Working with Databases 
+Lab : Working with Databases 
 =============================
 
 

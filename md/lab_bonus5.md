@@ -1,4 +1,4 @@
-Lab 6: Working with Emails 
+Lab: Working with Emails 
 ==========================
 
 

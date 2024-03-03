@@ -34,7 +34,7 @@ so that we can configure API as per our requirement.
 
 ### Bot Creation
 
-In Automation Anywhere cloud Control Room, create a new boat for
+In Automation Anywhere cloud Control Room, create a new bot for
 extracting text from PDF. We'll be using "*Rest Web Service: Post
 Method*" action to consume PDF.co "*/pdf/convert/to/text*" API endpoint.
 We'll also have the "*Message Box*" action attached to the output of the
