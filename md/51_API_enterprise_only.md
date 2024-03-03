@@ -4,6 +4,8 @@
 ## Introduction
 In this lab, you will explore the new task available in the Automation Anywhere A360 platform called the API task. This lab will guide you through creating and configuring an API task within the Automation Anywhere environment.
 
+**IMPORTANT:** This lab can only be done with Enterprise Automation Anywhere edition. API task feature is not available in Commmunity edition.
+
 ## Objectives
 - Understand the purpose and functionality of the API task.
 - Learn how to create an API task in Automation Anywhere A360.
