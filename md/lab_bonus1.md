@@ -1,8 +1,6 @@
 ## Lab: Mastering the Dashboard and Task Editor
 
-In the last lab, we did the automation anywhere setup and now we have all ready to start automating.
-
-So in this lab we will develop a simple bot that will open notepad and type some text.
+In this lab, we will develop a simple bot that will open notepad and type some text.
 
 So let's go click here on Automation tab. In the next section,we will explore more deeper the control room and other tabs too.
 
